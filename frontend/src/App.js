@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import './styles/locomotive-scroll.css';
+import LocomotiveScrollProvider from './components/LocomotiveScrollProvider';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -11,15 +13,25 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div className="App">
+      {/* Skip to content for accessibility */}
+      <a href="#main-content" className="skip-to-content">
+        Skip to main content
+      </a>
+      
+      {/* Fixed header outside scroll container */}
       <Header />
-      <main>
-        <Hero />
-        <Services />
-        <Work />
-        <About />
-        <Contact />
-      </main>
-      <Footer />
+      
+      {/* Main content wrapped in locomotive scroll */}
+      <LocomotiveScrollProvider>
+        <main id="main-content">
+          <Hero />
+          <Services />
+          <Work />
+          <About />
+          <Contact />
+        </main>
+        <Footer />
+      </LocomotiveScrollProvider>
     </div>
   );
 }

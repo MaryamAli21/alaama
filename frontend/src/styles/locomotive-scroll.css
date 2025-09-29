@@ -1,0 +1,190 @@
+/* Locomotive Scroll Styles */
+@import 'locomotive-scroll/dist/locomotive-scroll.css';
+
+/* Container styles */
+.locomotive-scroll-container {
+  overflow: hidden;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .locomotive-scroll-container {
+    overflow: auto !important;
+  }
+  
+  .locomotive-scroll-container * {
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Mobile disable - restore native scroll */
+@media (max-width: 767px) {
+  .locomotive-scroll-container {
+    overflow: auto !important;
+  }
+  
+  [data-scroll] {
+    transform: none !important;
+  }
+}
+
+/* Scroll reveal animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.scroll-reveal.is-inview {
+  opacity: 1;
+  transform: translateY(0) translateX(0);
+}
+
+/* Smooth reveal for cards */
+.scroll-reveal-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-reveal-card.is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger animation for multiple cards */
+.scroll-reveal-card:nth-child(1) { transition-delay: 0ms; }
+.scroll-reveal-card:nth-child(2) { transition-delay: 100ms; }
+.scroll-reveal-card:nth-child(3) { transition-delay: 200ms; }
+.scroll-reveal-card:nth-child(4) { transition-delay: 300ms; }
+.scroll-reveal-card:nth-child(5) { transition-delay: 400ms; }
+.scroll-reveal-card:nth-child(6) { transition-delay: 500ms; }
+
+/* Parallax elements */
+[data-scroll-speed] {
+  will-change: transform;
+}
+
+/* Fixed header outside scroll container */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  pointer-events: all;
+}
+
+/* Skip to content link for accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+
+.skip-to-content:focus {
+  top: 6px;
+}
+
+/* Ensure no layout shift */
+.locomotive-scroll-container img,
+.locomotive-scroll-container video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Performance optimizations */
+[data-scroll] {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Loading state */
+.locomotive-scroll-loading {
+  opacity: 0;
+}
+
+.locomotive-scroll-ready {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Focus management for keyboard navigation */
+.locomotive-scroll-container:focus-within {
+  outline: none;
+}
+
+/* Ensure interactive elements remain accessible */
+.locomotive-scroll-container button,
+.locomotive-scroll-container a,
+.locomotive-scroll-container input,
+.locomotive-scroll-container textarea,
+.locomotive-scroll-container select {
+  pointer-events: all;
+}
+
+/* Hero parallax specific styles */
+.hero-parallax {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Section divider parallax */
+.section-divider {
+  overflow: hidden;
+}
+
+.section-divider [data-scroll] {
+  will-change: transform;
+}
+
+/* Subtle reveal animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-up.is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Performance: Disable transforms on low-end devices */
+@media (max-device-width: 1024px) and (orientation: portrait) {
+  [data-scroll-speed] {
+    transform: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .scroll-reveal,
+  .scroll-reveal-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .locomotive-scroll-container {
+    overflow: visible !important;
+  }
+  
+  .scroll-reveal,
+  .scroll-reveal-card,
+  [data-scroll] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

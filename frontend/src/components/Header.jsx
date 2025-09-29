@@ -16,54 +16,61 @@ const Header = () => {
     { label: 'Contact', href: '#contact' }
   ];
 
+  const scrollToSection = (href) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-opacity-95 bg-black backdrop-blur-sm border-b border-gray-800">
+    <header className="fixed-header bg-opacity-95 bg-black backdrop-blur-sm border-b border-gray-800">
       <div className="container">
         <nav className="flex items-center justify-between py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="#home" className="text-xl font-bold text-white hover:text-brand-primary transition-colors">
+            <button
+              onClick={() => scrollToSection('#home')}
+              className="text-xl font-bold text-white hover:text-brand-primary transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-black"
+              aria-label="Go to homepage"
+            >
               <span className="brand-display text-2xl">ALAAMA</span>
               <span className="caption ml-2 text-text-secondary">Creative Studio</span>
-            </a>
+            </button>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.label}
-                href={item.href}
-                className="nav-link text-sm"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                onClick={() => scrollToSection(item.href)}
+                className="nav-link text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-black"
+                aria-label={`Navigate to ${item.label} section`}
               >
                 {item.label}
-              </a>
+              </button>
             ))}
           </div>
 
           {/* CTA Button - Desktop */}
           <div className="hidden md:block">
-            <a
-              href="#contact"
-              className="btn-primary"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+            <button
+              onClick={() => scrollToSection('#contact')}
+              className="btn-primary focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-black"
+              aria-label="Book a discovery call"
             >
               Book Discovery Call
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-white hover:text-brand-primary transition-colors"
+            className="md:hidden p-2 text-white hover:text-brand-primary transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-black"
             onClick={toggleMenu}
             aria-label="Toggle mobile menu"
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -74,31 +81,23 @@ const Header = () => {
           <div className="md:hidden border-t border-gray-800 bg-black bg-opacity-95 backdrop-blur-sm">
             <div className="py-4 space-y-2">
               {navItems.map((item) => (
-                <a
+                <button
                   key={item.label}
-                  href={item.href}
-                  className="block nav-link text-center"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
-                    setIsMenuOpen(false);
-                  }}
+                  onClick={() => scrollToSection(item.href)}
+                  className="block w-full nav-link text-center focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-black"
+                  aria-label={`Navigate to ${item.label} section`}
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
               <div className="pt-4 px-4">
-                <a
-                  href="#contact"
-                  className="btn-primary w-full"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-                    setIsMenuOpen(false);
-                  }}
+                <button
+                  onClick={() => scrollToSection('#contact')}
+                  className="btn-primary w-full focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-black"
+                  aria-label="Book a discovery call"
                 >
                   Book Discovery Call
-                </a>
+                </button>
               </div>
             </div>
           </div>
