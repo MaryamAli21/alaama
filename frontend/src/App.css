@@ -1,34 +1,378 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Pixel Pushers Core Visual System */
+:root {
+  /* Backgrounds - Exact Pixel Pushers Colors */
+  --bg-page: #1a1c1b;                       /* Main black background */
+  --bg-card: #302f2c;                       /* Dark gray card backgrounds */
+  --bg-light: #dfddd6;                      /* Light backgrounds when needed */
+  
+  /* Text - Exact Pixel Pushers Colors */
+  --text-primary: #d9fb06;                  /* Lime green primary text */
+  --text-secondary: #888680;                /* Mid gray supporting text */
+  --text-muted: #302f2c;                    /* Dark gray muted text */
+  --text-inverse: #1a1c1b;                  /* Black text on light backgrounds */
+  
+  /* Borders - Exact Pixel Pushers Colors */
+  --border-light: rgba(63, 72, 22, 0.5);   /* Subtle olive-tinted borders */
+  --border-medium: #3f4816;                 /* Standard olive borders */
+  --border-strong: #888680;                 /* Strong gray borders */
+  
+  /* MAIN BRAND COLORS - Pixel Pushers Brand Colors Only */
+  --brand-primary: #d9fb06;                 /* Primary lime green */
+  --brand-hover: rgba(217, 251, 6, 0.8);   /* Hover state */
+  --brand-active: rgba(217, 251, 6, 0.6);  /* Active/pressed state */
+  
+  /* Supporting Colors - Use sparingly */
+  --secondary-olive: #3f4816;               /* Dark olive green */
+  --secondary-yellow: #f8d47a;              /* Warm yellow accent */
+  --secondary-blue: #0073e6;                /* Blue for links */
+  --neutral-white: white;                   /* Pure white */
+  --neutral-light: #dfddd6;                 /* Light neutral */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
-.App-link {
-    color: #61dafb;
+/* Typography System - Pixel Pushers Sizing */
+.brand-display { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 900; 
+  font-size: clamp(3rem, 5.2571rem + 3.0476vw, 6rem); 
+  line-height: 0.9; 
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.heading-1 { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 900; 
+  font-size: clamp(2.5rem, 4rem + 2vw, 5rem); 
+  line-height: 0.85; 
+  text-transform: uppercase;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.heading-2 { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 800; 
+  font-size: clamp(2rem, 3rem + 1.5vw, 3.5rem); 
+  line-height: 0.9; 
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.heading-3 { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 700; 
+  font-size: clamp(1.5rem, 2rem + 1vw, 2.5rem); 
+  line-height: 1; 
+  text-transform: uppercase; 
+  color: var(--text-primary); 
+}
+
+.heading-4 { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 600; 
+  font-size: 1.5rem; 
+  line-height: 1.2; 
+  color: var(--text-primary);
+}
+
+.body-large { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 500; 
+  font-size: 1.25rem; 
+  line-height: 1.4; 
+  color: var(--text-secondary); 
+}
+
+.body-medium { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 500; 
+  font-size: 1.125rem; 
+  line-height: 1.5; 
+  color: var(--text-secondary); 
+}
+
+.body-small { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 500; 
+  font-size: 1rem; 
+  line-height: 1.6; 
+  color: var(--text-secondary); 
+}
+
+.caption { 
+  font-family: 'Inter', Arial, sans-serif; 
+  font-weight: 500; 
+  font-size: 0.875rem; 
+  line-height: 1.4; 
+  color: var(--text-muted); 
+  text-transform: uppercase; 
+  letter-spacing: 0.1em; 
+}
+
+/* Button System - Pixel Pushers CTA Style */
+.btn-primary {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: 10rem; /* Pill/Capsule - Extremely high corner radius */
+  padding: 1rem 2rem;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  min-height: 48px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--brand-primary);
+  border: 1px solid var(--brand-primary);
+  border-radius: 10rem;
+  padding: 1rem 2rem;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  transform: scale(1.02);
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Navigation Links */
+.nav-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 1rem 1.5rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--brand-hover);
+}
+
+.nav-link:active {
+  color: var(--brand-active);
+}
+
+/* Layout System */
+.container {
+  max-width: 87.5rem; /* 1400px */
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.section-padding {
+  padding: 7.5rem 0; /* 120px */
+}
+
+.grid-gap {
+  gap: 2.5rem 1.25rem; /* 40px 20px */
+}
+
+/* Card Components */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  transition: background-color 0.15s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  overflow: hidden;
+}
+
+.card:hover {
+  background-color: var(--border-medium);
+}
+
+/* Hero Section */
+.hero-section {
+  background: var(--bg-page);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 7.5rem 0 5rem;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow: hidden;
+}
+
+.hero-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.hero-overlay {
+  opacity: 0.6;
+  background-image: linear-gradient(135deg, #000, transparent);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 20ch;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+  
+  .hero-section {
+    padding: 5rem 0;
+    min-height: 80vh;
+  }
+  
+  .section-padding {
+    padding: 5rem 0;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    min-height: 52px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.mb-0 { margin-bottom: 0; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+.mt-8 { margin-top: 2rem; }
+.mt-12 { margin-top: 3rem; }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-4 { gap: 1rem; }
+.gap-8 { gap: 2rem; }
+
+.w-full { width: 100%; }
+.max-w-3xl { max-width: 48rem; }
+.max-w-4xl { max-width: 64rem; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inset-0 { inset: 0; }
+.z-10 { z-index: 10; }
+
+/* Animation Guidelines */
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--brand-primary);
+  color: var(--text-inverse);
+}
+
+/* Focus states for accessibility */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
 }
