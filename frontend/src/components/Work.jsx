@@ -22,9 +22,11 @@ const Work = () => {
           {caseStudies.map((study, index) => (
             <div 
               key={study.id} 
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center scroll-reveal-card ${
                 index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
               }`}
+              data-scroll
+              data-scroll-call="reveal"
             >
               {/* Case Study Content */}
               <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
