@@ -1,0 +1,112 @@
+{
+  "site": {
+    "name": "Alaama Creative Studio",
+    "tagline": "We craft bold brands, build smart apps, and run inspiring workshops",
+    "description": "Strategy-led brand and digital studio partnered with TBU for market, strategy, and growth."
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services", 
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "cta": {
+    "primary": "Book Discovery Call",
+    "secondary": "See Our Work",
+    "bookNow": "Book Now",
+    "startProject": "Start Your Project",
+    "sendMessage": "Send Message",
+    "emailDirectly": "Or Email Directly"
+  },
+  "hero": {
+    "headline": "We craft bold brands & speak visuals",
+    "tagline": "We craft bold brands, build smart apps, and run inspiring workshops for the makers, the dreamers, and the future leaders.",
+    "partnership": "In Partnership With",
+    "partnerName": "TBU — The Business United",
+    "partnerRole": "Strategy Partner",
+    "valueProposition": "We specialize in transforming ideas into visually compelling solutions",
+    "description": "From design to code — and everything in between — we don't just create. We are a strategy-led brand and digital studio."
+  },
+  "services": {
+    "title": "What We Do",
+    "subtitle": "Overview of our services - from strategy to execution, we handle every aspect of brand and digital development",
+    "cta": "Ready to transform your brand? Let's discuss your project.",
+    "ctaButton": "Start Your Project"
+  },
+  "work": {
+    "title": "Our Work", 
+    "subtitle": "Selected case studies showcasing our approach to brand development and digital transformation",
+    "moreConcepts": "More Concepts",
+    "cta": "Interested in seeing how we can transform your brand?",
+    "ctaButton": "Discuss Your Project",
+    "viewCase": "View Full Case Study",
+    "challenge": "Challenge:",
+    "position": "Position:",
+    "identity": "Key Identity Moves:",
+    "impact": "Observable Impact:"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "We are a strategy-led brand and digital studio, partnered with TBU for market, strategy, and growth.",
+    "partnership": {
+      "title": "Alaama (Brand & Build) × TBU (Business & Growth)",
+      "description": "Strategy-led brand and digital studio. Partnered with TBU for market, strategy, and growth."
+    },
+    "mission": {
+      "title": "Mission & Values"
+    },
+    "clients": {
+      "title": "The Clients We Work With"
+    },
+    "audience": {
+      "title": "Who We're Speaking To",
+      "subtitle": "We work with visionary leaders across different roles and industries"
+    },
+    "cta": "Ready to partner with us? Let's create something extraordinary together.",
+    "ctaButton": "Start Our Partnership"
+  },
+  "contact": {
+    "title": "Let's Create Together",
+    "subtitle": "Ready to transform your brand? Get in touch to discuss your project and book a discovery call.",
+    "form": {
+      "title": "Send us a message",
+      "name": "Name",
+      "email": "Email", 
+      "company": "Company",
+      "message": "Project Details",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "your@email.com",
+      "companyPlaceholder": "Your company name",
+      "messagePlaceholder": "Tell us about your project, goals, and timeline...",
+      "required": "*",
+      "sending": "Sending...",
+      "success": "Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.",
+      "error": "Sorry, there was an error sending your message. Please try the direct email link above."
+    },
+    "scheduler": {
+      "title": "Book a Discovery Call",
+      "subtitle": "Skip the back-and-forth emails and schedule a 30-minute discovery call to discuss your project in detail.",
+      "cardTitle": "Schedule Your Call",
+      "cardSubtitle": "30-minute discovery session to understand your goals and how we can help.",
+      "comingSoon": "Book Now (Coming Soon)"
+    },
+    "info": {
+      "title": "Get in Touch",
+      "email": "Email",
+      "instagram": "Instagram", 
+      "website": "Website"
+    }
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "partnership": "In Partnership With",
+    "partnerName": "TBU — The Business United",
+    "partnerRole": "Strategy Partner", 
+    "copyright": "Alaama Creative Studio. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "madeWith": "Made with 💚 by Alaama"
+  }
+}
