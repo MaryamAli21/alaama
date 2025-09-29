@@ -111,7 +111,12 @@ const Work = () => {
           {/* Concept Gallery Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div key={item} className="card aspect-square overflow-hidden group cursor-pointer">
+              <div 
+                key={item} 
+                className="card aspect-square overflow-hidden group cursor-pointer scroll-reveal-card"
+                data-scroll
+                data-scroll-call="reveal"
+              >
                 <div className="w-full h-full bg-bg-page flex items-center justify-center group-hover:bg-border-medium transition-colors">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
