@@ -34,13 +34,15 @@ const Services = () => {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {services.map((service) => {
+          {services.map((service, index) => {
             const IconComponent = iconComponents[service.icon];
             
             return (
               <div 
                 key={service.id} 
-                className="card p-8 group hover:transform hover:scale-105 transition-all duration-300"
+                className="card p-8 group hover:transform hover:scale-105 transition-all duration-300 scroll-reveal-card"
+                data-scroll
+                data-scroll-call="reveal"
               >
                 {/* Service Icon */}
                 <div className="mb-6">
