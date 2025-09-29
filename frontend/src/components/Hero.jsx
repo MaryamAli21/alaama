@@ -5,8 +5,12 @@ import { siteConfig } from '../data/mock';
 const Hero = () => {
   return (
     <section id="home" className="hero-section">
-      {/* Background with overlay */}
-      <div className="hero-background">
+      {/* Background with overlay - subtle parallax */}
+      <div 
+        className="hero-background hero-parallax" 
+        data-scroll 
+        data-scroll-speed="-0.5"
+      >
         <div className="hero-overlay"></div>
       </div>
 
