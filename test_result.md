@@ -14,7 +14,7 @@
 # Main and testing agents must follow this exact format to maintain testing data. 
 # The testing data must be entered in yaml format Below is the data structure:
 # 
-## user_problem_statement: {problem_statement}
+## user_problem_statement: "Build Alaama Creative Studio website with Locomotive Scroll, complete backend CMS, contact form, admin interface, Google Analytics, and comprehensive functionality"
 ## backend:
 ##   - task: "Task name"
 ##     implemented: true
