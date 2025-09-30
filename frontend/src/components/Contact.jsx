@@ -7,10 +7,30 @@ const Contact = () => {
     name: '',
     email: '',
     company: '',
-    message: ''
+    message: '',
+    honeypot: '' // Hidden field for spam protection
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
+  const [config, setConfig] = useState({
+    contact_email: 'info@alaama.co',
+    instagram: '@alaama.bh',
+    website: 'www.alaama.co',
+    calendly_link: null
+  });
+
+  useEffect(() => {
+    const fetchConfig = async () => {
+      try {
+        const data = await apiService.getConfig();
+        setConfig(data);
+      } catch (err) {
+        console.error('Failed to fetch config:', err);
+      }
+    };
+
+    fetchConfig();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
