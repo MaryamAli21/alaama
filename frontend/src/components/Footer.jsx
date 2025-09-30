@@ -4,6 +4,24 @@ import { apiService } from '../services/api';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [config, setConfig] = useState({
+    contact_email: 'info@alaama.co',
+    instagram: '@alaama.bh',
+    website: 'www.alaama.co'
+  });
+
+  useEffect(() => {
+    const fetchConfig = async () => {
+      try {
+        const data = await apiService.getConfig();
+        setConfig(data);
+      } catch (err) {
+        console.error('Failed to fetch config:', err);
+      }
+    };
+
+    fetchConfig();
+  }, []);
 
   return (
     <footer className="bg-bg-page border-t border-border-medium">
