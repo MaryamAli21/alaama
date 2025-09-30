@@ -18,6 +18,51 @@ const iconComponents = {
 };
 
 const Services = () => {
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const data = await apiService.getServices();
+        setServices(data);
+      } catch (err) {
+        setError('Failed to load services');
+        console.error('Error fetching services:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []);
+
+  if (loading) {
+    return (
+      <section id="services" className="section-padding bg-bg-page">
+        <div className="container">
+          <div className="text-center">
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-brand-primary"></div>
+            <p className="mt-4 body-medium">Loading services...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section id="services" className="section-padding bg-bg-page">
+        <div className="container">
+          <div className="text-center">
+            <p className="body-medium text-red-400">{error}</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="services" className="section-padding bg-bg-page">
       <div className="container">
