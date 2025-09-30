@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Request, Depends
 from motor.motor_asyncio import AsyncIOMotorDatabase
-from ..models.contact import ContactSubmissionCreate, ContactSubmissionResponse, ContactSubmission
-from ..utils.email import send_contact_notification, send_welcome_email
+from models.contact import ContactSubmissionCreate, ContactSubmissionResponse, ContactSubmission
+from utils.email import send_contact_notification, send_welcome_email
 from datetime import datetime
 import logging
 import asyncio
