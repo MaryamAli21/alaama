@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import './styles/locomotive-scroll.css';
 import LocomotiveScrollProvider from './components/LocomotiveScrollProvider';
@@ -9,6 +9,8 @@ import Work from './components/Work';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CookieConsent from './components/CookieConsent';
+import { trackPageView } from './utils/analytics';
 
 function App() {
   return (
