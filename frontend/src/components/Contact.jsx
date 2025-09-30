@@ -237,15 +237,25 @@ const Contact = () => {
                 <p className="body-small mb-6 text-text-secondary">
                   30-minute discovery session to understand your goals and how we can help.
                 </p>
-                <button 
-                  className="btn-primary"
-                  onClick={() => {
-                    // Placeholder for Calendly integration
-                    alert('Calendly integration coming soon! Please use the contact form or email for now.');
-                  }}
-                >
-                  Book Now (Coming Soon)
-                </button>
+                {config.calendly_link ? (
+                  <a
+                    href={config.calendly_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                  >
+                    Book Now
+                  </a>
+                ) : (
+                  <button 
+                    className="btn-primary"
+                    onClick={() => {
+                      alert('Calendly integration coming soon! Please use the contact form or email for now.');
+                    }}
+                  >
+                    Book Now (Coming Soon)
+                  </button>
+                )}
               </div>
             </div>
 
