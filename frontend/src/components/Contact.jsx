@@ -46,17 +46,23 @@ const Contact = () => {
     setSubmitStatus('');
 
     try {
-      // Mock form submission - will be replaced with actual API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const response = await apiService.submitContact({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company || null,
+        message: formData.message,
+        honeypot: formData.honeypot // Should be empty for legitimate submissions
+      });
       
-      // Simulate success
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', company: '', message: '' });
-      
-      // In real implementation, this would be an API call to save to database
-      console.log('Form submitted:', formData);
+      if (response.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', company: '', message: '', honeypot: '' });
+      } else {
+        setSubmitStatus('error');
+      }
       
     } catch (error) {
+      console.error('Contact form submission failed:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
