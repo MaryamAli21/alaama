@@ -2,8 +2,8 @@ from fastapi import APIRouter, HTTPException, Depends, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from motor.motor_asyncio import AsyncIOMotorDatabase
 from datetime import timedelta, datetime
-from ..models.cms import AdminLogin, Token, AdminUser, AdminUserCreate
-from ..utils.auth import (
+from models.cms import AdminLogin, Token, AdminUser, AdminUserCreate
+from utils.auth import (
     verify_password, 
     get_password_hash, 
     create_access_token,
