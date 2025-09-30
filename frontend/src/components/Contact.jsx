@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Send, Mail, Instagram, Globe, ArrowRight } from 'lucide-react';
 import { apiService } from '../services/api';
+import { trackContactSubmission, trackCTAClick } from '../utils/analytics';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
