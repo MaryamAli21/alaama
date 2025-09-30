@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import './styles/locomotive-scroll.css';
 import LocomotiveScrollProvider from './components/LocomotiveScrollProvider';
@@ -10,6 +11,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CookieConsent from './components/CookieConsent';
+import AdminApp from './components/admin/AdminApp';
 import { trackPageView } from './utils/analytics';
 
 function App() {
