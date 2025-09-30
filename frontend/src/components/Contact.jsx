@@ -91,6 +91,17 @@ const Contact = () => {
             <h3 className="heading-3 mb-8">Send us a message</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Honeypot field - hidden from users */}
+              <input
+                type="text"
+                name="honeypot"
+                value={formData.honeypot}
+                onChange={handleChange}
+                style={{ display: 'none' }}
+                tabIndex="-1"
+                autoComplete="off"
+              />
+              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="body-small font-medium text-text-primary block mb-2">
