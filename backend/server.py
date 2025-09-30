@@ -118,7 +118,7 @@ async def shutdown_db_client():
 async def health_check():
     try:
         # Test database connection
-        await db.admin_collection_names()
+        await client.admin.command('ping')
         return {
             "status": "healthy",
             "database": "connected",
