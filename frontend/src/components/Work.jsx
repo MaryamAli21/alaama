@@ -159,9 +159,10 @@ const Work = () => {
             {[1, 2, 3, 4, 5, 6].map((item) => (
               <div 
                 key={item} 
-                className="card aspect-square overflow-hidden group cursor-pointer scroll-reveal-card"
+                className="card aspect-square overflow-hidden group cursor-pointer"
                 data-scroll
-                data-scroll-call="reveal"
+                data-scroll-speed={`0.${5 + (item * 2)}`} // Vary from 0.07 to 0.17
+                data-scroll-direction={item % 3 === 0 ? "horizontal" : undefined}
               >
                 <div className="w-full h-full bg-bg-page flex items-center justify-center group-hover:bg-border-medium transition-colors">
                   <div className="text-center">
