@@ -49,10 +49,15 @@ const LocomotiveScrollProvider = ({ children }) => {
             multiplier: 1,
             class: 'is-inview',
             scrollbarContainer: false,
-            // Use transform instead of translate for better performance
+            // Ultra-subtle parallax settings
             useKeyboard: true,
             direction: 'vertical',
             gestureDirection: 'vertical',
+            // Lerp for ultra-smooth transitions with low speeds
+            lerp: 0.1,
+            // Enhanced settings for ultra-low speeds
+            offset: ['30%', 0],
+            repeat: false,
             tablet: {
               smooth: false, // Disable smooth scrolling on tablet for performance
             },
