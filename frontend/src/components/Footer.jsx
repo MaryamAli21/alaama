@@ -39,14 +39,14 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href={`mailto:${siteConfig.contact.email}`}
+                href={`mailto:${config.contact_email}`}
                 className="w-12 h-12 bg-border-medium rounded-lg flex items-center justify-center hover:bg-brand-primary transition-colors group"
                 aria-label="Email us"
               >
                 <Mail size={20} className="text-brand-primary group-hover:text-text-inverse transition-colors" />
               </a>
               <a
-                href={`https://instagram.com/${siteConfig.contact.instagram.replace('@', '')}`}
+                href={`https://instagram.com/${config.instagram.replace('@', '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-border-medium rounded-lg flex items-center justify-center hover:bg-brand-primary transition-colors group"
@@ -55,7 +55,7 @@ const Footer = () => {
                 <Instagram size={20} className="text-brand-primary group-hover:text-text-inverse transition-colors" />
               </a>
               <a
-                href={`https://${siteConfig.contact.website}`}
+                href={`https://${config.website}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-border-medium rounded-lg flex items-center justify-center hover:bg-brand-primary transition-colors group"
