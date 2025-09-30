@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Palette, 
   Monitor, 
@@ -7,7 +7,7 @@ import {
   BookOpen,
   ArrowRight
 } from 'lucide-react';
-import { services } from '../data/mock';
+import { apiService } from '../services/api';
 
 const iconComponents = {
   Palette,
