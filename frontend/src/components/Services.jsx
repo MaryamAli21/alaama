@@ -77,17 +77,31 @@ const Services = () => {
           </p>
         </div>
 
+        {/* Section divider with counter-motion */}
+        <div 
+          className="w-full h-px bg-gradient-to-r from-transparent via-border-medium to-transparent mb-12"
+          data-scroll 
+          data-scroll-speed="-0.05"
+          aria-hidden="true"
+        ></div>
+
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => {
             const IconComponent = iconComponents[service.icon];
             
+            // Alternate horizontal and vertical motion for variety
+            const isEven = index % 2 === 0;
+            const scrollDirection = isEven ? "horizontal" : undefined;
+            const scrollSpeed = isEven ? "0.15" : "0.12";
+            
             return (
-              <div 
+              <article 
                 key={service.id} 
-                className="card p-8 group hover:transform hover:scale-105 transition-all duration-300 scroll-reveal-card"
+                className="card p-8 group hover:transform hover:scale-105 transition-all duration-300"
                 data-scroll
-                data-scroll-call="reveal"
+                data-scroll-direction={scrollDirection}
+                data-scroll-speed={scrollSpeed}
               >
                 {/* Service Icon */}
                 <div className="mb-6">
