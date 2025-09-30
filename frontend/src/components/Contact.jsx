@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Send, Mail, Instagram, Globe, ArrowRight } from 'lucide-react';
-import { siteConfig } from '../data/mock';
+import { apiService } from '../services/api';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
