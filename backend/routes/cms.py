@@ -1,10 +1,10 @@
 from fastapi import APIRouter, HTTPException, Depends
 from motor.motor_asyncio import AsyncIOMotorDatabase
-from ..models.cms import (
+from models.cms import (
     Service, ServiceCreate, ServiceUpdate,
     CaseStudy, CaseStudyCreate, CaseStudyUpdate
 )
-from ..utils.auth import get_current_user
+from utils.auth import get_current_user
 from typing import List, Optional
 from datetime import datetime
 import logging
