@@ -195,6 +195,7 @@ const Contact = () => {
                 <a
                   href={mailtoLink}
                   className="btn-secondary flex items-center justify-center gap-2"
+                  onClick={() => trackContactSubmission('email')}
                 >
                   Or Email Directly
                   <Mail size={16} />
