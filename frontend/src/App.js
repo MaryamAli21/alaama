@@ -13,6 +13,22 @@ import CookieConsent from './components/CookieConsent';
 import { trackPageView } from './utils/analytics';
 
 function App() {
+  useEffect(() => {
+    // Track initial page view
+    trackPageView(document.title, window.location.href);
+    
+    // Track page title changes for SPA navigation
+    const observer = new MutationObserver(() => {
+      trackPageView(document.title, window.location.href);
+    });
+    
+    observer.observe(document.querySelector('title'), {
+      childList: true
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="App">
       {/* Skip to content for accessibility */}
@@ -34,6 +50,9 @@ function App() {
         </main>
         <Footer />
       </LocomotiveScrollProvider>
+      
+      {/* Cookie Consent Banner */}
+      <CookieConsent />
     </div>
   );
 }
