@@ -58,6 +58,9 @@ const Contact = () => {
       if (response.success) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', company: '', message: '', honeypot: '' });
+        
+        // Track successful contact submission
+        trackContactSubmission('form');
       } else {
         setSubmitStatus('error');
       }
