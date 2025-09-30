@@ -142,7 +142,7 @@ const Services = () => {
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
-              </div>
+              </article>
             );
           })}
         </div>
