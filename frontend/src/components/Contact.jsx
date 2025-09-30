@@ -69,7 +69,7 @@ const Contact = () => {
     }
   };
 
-  const mailtoLink = `mailto:${siteConfig.contact.email}?subject=Project Inquiry&body=Hello Alaama Creative Studio, I'd like to discuss a project...`;
+  const mailtoLink = `mailto:${config.contact_email}?subject=Project Inquiry&body=Hello Alaama Creative Studio, I'd like to discuss a project...`;
 
   return (
     <section id="contact" className="section-padding bg-bg-card">
