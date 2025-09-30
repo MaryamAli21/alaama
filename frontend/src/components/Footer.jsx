@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Instagram, Globe } from 'lucide-react';
-import { siteConfig } from '../data/mock';
+import { apiService } from '../services/api';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
