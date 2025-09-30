@@ -103,7 +103,7 @@ async def startup_event():
     
     # Test database connection
     try:
-        await db.admin_collection_names()
+        await client.admin.command('ping')
         logger.info("✅ Database connection successful")
     except Exception as e:
         logger.error(f"❌ Database connection failed: {e}")
