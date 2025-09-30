@@ -136,7 +136,7 @@ const Footer = () => {
                   document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                {siteConfig.cta.primary}
+                Book Discovery Call
               </a>
             </div>
           </div>
