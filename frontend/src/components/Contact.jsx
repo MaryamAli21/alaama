@@ -261,10 +261,10 @@ const Contact = () => {
                   <div>
                     <p className="body-small font-medium text-text-primary">Email</p>
                     <a 
-                      href={`mailto:${siteConfig.contact.email}`}
+                      href={`mailto:${config.contact_email}`}
                       className="body-small text-brand-primary hover:text-brand-hover transition-colors"
                     >
-                      {siteConfig.contact.email}
+                      {config.contact_email}
                     </a>
                   </div>
                 </div>
@@ -276,12 +276,12 @@ const Contact = () => {
                   <div>
                     <p className="body-small font-medium text-text-primary">Instagram</p>
                     <a 
-                      href={`https://instagram.com/${siteConfig.contact.instagram.replace('@', '')}`}
+                      href={`https://instagram.com/${config.instagram.replace('@', '')}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="body-small text-brand-primary hover:text-brand-hover transition-colors"
                     >
-                      {siteConfig.contact.instagram}
+                      {config.instagram}
                     </a>
                   </div>
                 </div>
@@ -293,12 +293,12 @@ const Contact = () => {
                   <div>
                     <p className="body-small font-medium text-text-primary">Website</p>
                     <a 
-                      href={`https://${siteConfig.contact.website}`}
+                      href={`https://${config.website}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="body-small text-brand-primary hover:text-brand-hover transition-colors"
                     >
-                      {siteConfig.contact.website}
+                      {config.website}
                     </a>
                   </div>
                 </div>
