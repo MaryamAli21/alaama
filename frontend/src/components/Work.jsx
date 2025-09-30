@@ -3,6 +3,51 @@ import { ArrowRight, ExternalLink } from 'lucide-react';
 import { apiService } from '../services/api';
 
 const Work = () => {
+  const [caseStudies, setCaseStudies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchCaseStudies = async () => {
+      try {
+        const data = await apiService.getCaseStudies(true); // Featured only
+        setCaseStudies(data);
+      } catch (err) {
+        setError('Failed to load case studies');
+        console.error('Error fetching case studies:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCaseStudies();
+  }, []);
+
+  if (loading) {
+    return (
+      <section id="work" className="section-padding bg-bg-card">
+        <div className="container">
+          <div className="text-center">
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-brand-primary"></div>
+            <p className="mt-4 body-medium">Loading case studies...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section id="work" className="section-padding bg-bg-card">
+        <div className="container">
+          <div className="text-center">
+            <p className="body-medium text-red-400">{error}</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="work" className="section-padding bg-bg-card">
       <div className="container">
