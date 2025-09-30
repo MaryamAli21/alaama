@@ -12,6 +12,12 @@
     overflow: auto !important;
   }
   
+  [data-scroll] {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
   .locomotive-scroll-container * {
     transform: none !important;
     animation: none !important;
