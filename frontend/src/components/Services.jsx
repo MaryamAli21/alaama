@@ -147,8 +147,13 @@ const Services = () => {
           })}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center">
+        {/* Bottom CTA with subtle horizontal drift */}
+        <div 
+          className="text-center"
+          data-scroll
+          data-scroll-direction="horizontal"
+          data-scroll-speed="0.08"
+        >
           <p className="body-medium mb-6">
             Ready to transform your brand? Let's discuss your project.
           </p>
