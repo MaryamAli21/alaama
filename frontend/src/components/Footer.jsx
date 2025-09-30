@@ -35,7 +35,7 @@ const Footer = () => {
               <p className="caption text-text-secondary">Creative Studio</p>
             </div>
             <p className="body-medium max-w-md mb-6">
-              {siteConfig.description}
+              Strategy-led brand and digital studio partnered with TBU for market, strategy, and growth.
             </p>
             <div className="flex gap-4">
               <a
