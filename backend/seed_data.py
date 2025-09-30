@@ -157,14 +157,14 @@ async def seed_database():
         # Seed Services
         print("📋 Seeding services...")
         services = [Service(**service_data) for service_data in services_data]
-        service_dicts = [service.dict() for service in services]
+        service_dicts = [service.model_dump() for service in services]
         await db.services.insert_many(service_dicts)
         print(f"✅ Inserted {len(services)} services")
         
         # Seed Case Studies
         print("📚 Seeding case studies...")
         case_studies = [CaseStudy(**case_study_data) for case_study_data in case_studies_data]
-        case_study_dicts = [case_study.dict() for case_study in case_studies]
+        case_study_dicts = [case_study.model_dump() for case_study in case_studies]
         await db.case_studies.insert_many(case_study_dicts)
         print(f"✅ Inserted {len(case_studies)} case studies")
         
@@ -176,8 +176,9 @@ async def seed_database():
             role="admin"
         )
         
-        admin_dict = admin_user.dict()
-        admin_dict["password_hash"] = get_password_hash("admin123")  # Change this in production!
+        admin_dict = admin_user.model_dump()
+        # Use shorter password for bcrypt compatibility
+        admin_dict["password_hash"] = get_password_hash("admin123"[:72])
         
         await db.admin_users.insert_one(admin_dict)
         print("✅ Created default admin user (username: admin, password: admin123)")
