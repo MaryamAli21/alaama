@@ -67,11 +67,12 @@ const Work = () => {
           {caseStudies.map((study, index) => (
             <div 
               key={study.id} 
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center scroll-reveal-card ${
+              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
                 index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
               }`}
               data-scroll
-              data-scroll-call="reveal"
+              data-scroll-speed={index % 2 === 0 ? "0.1" : "0.2"}
+              data-scroll-direction={index % 2 === 0 ? undefined : "horizontal"}
             >
               {/* Case Study Content */}
               <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
