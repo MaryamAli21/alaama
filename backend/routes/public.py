@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from motor.motor_asyncio import AsyncIOMotorDatabase
-from ..models.cms import Service, CaseStudy
+from models.cms import Service, CaseStudy
 from typing import List
 import logging
 
