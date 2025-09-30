@@ -11,6 +11,10 @@ import uuid
 from datetime import datetime
 
 # Import route modules
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent))
+
 from routes.contact import create_contact_router
 from routes.cms import create_cms_router
 from routes.auth import create_auth_router
