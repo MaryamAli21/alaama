@@ -248,6 +248,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-primary"
+                    onClick={() => trackCTAClick('Book Now', 'contact_section')}
                   >
                     Book Now
                   </a>
