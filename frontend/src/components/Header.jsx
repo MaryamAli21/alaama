@@ -10,11 +10,11 @@ const Header = () => {
   };
 
   const navItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'Services', href: '#services' },
-    { label: 'Work', href: '#work' },
-    { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' }
+    { label: 'Home', href: 'home' },
+    { label: 'Services', href: 'services' },
+    { label: 'Work', href: 'work' },
+    { label: 'About', href: 'about' },
+    { label: 'Contact', href: 'contact' }
   ];
 
   const scrollToSection = (href) => {
