@@ -77,7 +77,10 @@ const Hero = () => {
                 className="bg-brand-primary hover:bg-red-600 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 text-base whitespace-nowrap"
                 data-scroll
                 data-scroll-speed="0.08"
-                onClick={() => scrollToSection('#contact')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('contact');
+                }}
               >
                 Book Discovery Call
                 <ArrowRight size={18} />
