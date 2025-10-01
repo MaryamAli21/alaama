@@ -112,7 +112,7 @@ const Services = () => {
 
                 {/* Service Content */}
                 <h3 className="heading-4 mb-2">{service.title}</h3>
-                <p className="caption mb-4 text-brand-primary">{service.subtitle}</p>
+                <p className="caption mb-4 text-text-secondary">{service.subtitle}</p>
                 <p className="body-small mb-6">{service.description}</p>
 
                 {/* Outcomes List */}
