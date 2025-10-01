@@ -163,7 +163,7 @@ const Services = () => {
             className="btn-primary inline-flex items-center gap-2"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection('#contact');
+              scrollToSection('contact');
             }}
           >
             Start Your Project
