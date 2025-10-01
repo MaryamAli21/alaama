@@ -29,7 +29,10 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <button
-              onClick={() => scrollToSection('#home')}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('#home');
+              }}
               className="focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-black transition-opacity hover:opacity-80"
               aria-label="Go to homepage"
             >
