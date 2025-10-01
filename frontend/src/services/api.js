@@ -204,6 +204,57 @@ export const apiService = {
       console.error('Failed to fetch contact submissions:', error);
       throw error;
     }
+  },
+
+  // Concepts Management
+  async getConcepts() {
+    try {
+      const response = await api.get('/public/concepts');
+      return response.data;
+    } catch (error) {
+      console.error('Failed to fetch concepts:', error);
+      throw error;
+    }
+  },
+
+  async getAdminConcepts() {
+    try {
+      const response = await api.get('/cms/concepts?active_only=false');
+      return response.data;
+    } catch (error) {
+      console.error('Failed to fetch admin concepts:', error);
+      throw error;
+    }
+  },
+
+  async createConcept(conceptData) {
+    try {
+      const response = await api.post('/cms/concepts', conceptData);
+      return response.data;
+    } catch (error) {
+      console.error('Failed to create concept:', error);
+      throw error;
+    }
+  },
+
+  async updateConcept(conceptId, conceptData) {
+    try {
+      const response = await api.put(`/cms/concepts/${conceptId}`, conceptData);
+      return response.data;
+    } catch (error) {
+      console.error('Failed to update concept:', error);
+      throw error;
+    }
+  },
+
+  async deleteConcept(conceptId) {
+    try {
+      const response = await api.delete(`/cms/concepts/${conceptId}`);
+      return response.data;
+    } catch (error) {
+      console.error('Failed to delete concept:', error);
+      throw error;
+    }
   }
 };
 
