@@ -18,17 +18,7 @@ const Header = () => {
   ];
 
   const scrollToSection = (href) => {
-    const element = document.querySelector(href);
-    if (element) {
-      const headerHeight = 120; // Fixed header height in pixels
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - headerHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
+    scrollToSectionUtil(href);
     setIsMenuOpen(false);
   };
 
