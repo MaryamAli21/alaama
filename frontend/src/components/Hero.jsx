@@ -41,88 +41,97 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-10">
-        <div className="hero-content">
-          {/* Main Headline with subtle reveal */}
-          <h1 
-            className="brand-display mb-6"
-            data-scroll
-            data-scroll-speed="0.05"
-          >
-            We craft
-            <br />
-            bold brands
-            <br />
-            & speak
-            <br />
-            visuals
-          </h1>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[80vh]">
+          {/* Left Side - Main Content */}
+          <div className="lg:col-span-8">
+            {/* Main Headline - 2 words per line */}
+            <h1 
+              className="text-6xl md:text-7xl lg:text-8xl font-black leading-none mb-6 text-white"
+              data-scroll
+              data-scroll-speed="0.05"
+            >
+              Creative Bold
+              <br />
+              Brands That
+              <br />
+              <span className="text-brand-primary">&</span>
+              <br />
+              Speak Visuals
+            </h1>
 
-          {/* Tagline with horizontal drift */}
-          <p 
-            className="body-large mb-8 max-w-2xl"
-            data-scroll
-            data-scroll-direction="horizontal"
-            data-scroll-speed="0.12"
-          >
-            {siteConfig.tagline} for the makers, the dreamers, and the future leaders.
-          </p>
-
-          {/* Partnership Info with counter-motion */}
-          <div 
-            className="mb-12"
-            data-scroll
-            data-scroll-speed="-0.03"
-          >
-            <p className="caption mb-2">In Partnership With</p>
-            <p className="body-medium text-brand-primary font-semibold">
-              TBU — The Business United
+            {/* Tagline - One line, readable */}
+            <p 
+              className="text-lg md:text-xl mb-8 text-gray-300 max-w-2xl leading-relaxed"
+              data-scroll
+              data-scroll-direction="horizontal"
+              data-scroll-speed="0.12"
+            >
+              Strategy-led brand and digital studio crafting memorable experiences for ambitious businesses.
             </p>
-            <p className="body-small">Strategy Partner</p>
+
+            {/* CTA Buttons - Fixed styling */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <button
+                className="bg-brand-primary hover:bg-red-600 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 text-base whitespace-nowrap"
+                data-scroll
+                data-scroll-speed="0.08"
+                onClick={() => {
+                  document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Book Discovery Call
+                <ArrowRight size={18} />
+              </button>
+              <button
+                className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 hover:scale-105 text-base whitespace-nowrap"
+                data-scroll
+                data-scroll-speed="0.15"
+                onClick={() => {
+                  document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                See Our Work
+              </button>
+            </div>
+
+            {/* Partnership Info - Compact */}
+            <div 
+              className="text-sm text-gray-400"
+              data-scroll
+              data-scroll-speed="-0.03"
+            >
+              <span className="text-gray-500">In Partnership With</span> 
+              <span className="text-brand-primary font-semibold ml-2">TBU — The Business United</span>
+            </div>
           </div>
 
-          {/* CTA Buttons with staggered reveal */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <a
-              href="#contact"
-              className="btn-primary flex items-center gap-2"
+          {/* Right Side - Supporting Content */}
+          <div className="lg:col-span-4 lg:pl-8">
+            <div 
+              className="space-y-6"
               data-scroll
-              data-scroll-speed="0.08"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              data-scroll-direction="horizontal"
+              data-scroll-speed="0.06"
             >
-              {siteConfig.cta.primary}
-              <ArrowRight size={16} />
-            </a>
-            <a
-              href="#work"
-              className="btn-secondary"
-              data-scroll
-              data-scroll-speed="0.15"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              {siteConfig.cta.secondary}
-            </a>
-          </div>
+              {/* Key Points */}
+              <div className="bg-black bg-opacity-50 backdrop-blur-sm p-6 rounded-lg border border-gray-800">
+                <h3 className="text-brand-primary font-semibold mb-3 text-lg">What We Do</h3>
+                <ul className="space-y-2 text-gray-300 text-sm">
+                  <li>• Brand Strategy & Identity</li>
+                  <li>• Digital Experience Design</li>
+                  <li>• Content Systems</li>
+                  <li>• Go-to-Market Strategy</li>
+                </ul>
+              </div>
 
-          {/* Value Proposition with horizontal drift */}
-          <div 
-            className="max-w-3xl"
-            data-scroll
-            data-scroll-direction="horizontal"
-            data-scroll-speed="0.06"
-          >
-            <p className="body-medium mb-4 text-text-primary font-medium">
-              We specialize in transforming ideas into visually compelling solutions
-            </p>
-            <p className="body-small">
-              From design to code — and everything in between — we don't just create.
-              We are a strategy-led brand and digital studio.
-            </p>
+              {/* Stats or Highlights */}
+              <div className="bg-black bg-opacity-50 backdrop-blur-sm p-6 rounded-lg border border-gray-800">
+                <h3 className="text-brand-primary font-semibold mb-3 text-lg">Our Approach</h3>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  We don't just design — we craft strategic solutions that connect, convert, and scale your business.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
