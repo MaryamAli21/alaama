@@ -51,6 +51,25 @@ def create_public_router(db: AsyncIOMotorDatabase) -> APIRouter:
             logger.error(f"Failed to fetch public case studies: {e}")
             raise HTTPException(status_code=500, detail="Failed to fetch case studies")
     
+    @router.get("/concepts", response_model=List[Concept])
+    async def get_public_concepts():
+        """Get active concepts for public website"""
+        try:
+            cursor = db.concepts.find({"active": True}).sort("order", 1)
+            concepts = await cursor.to_list(length=None)
+            
+            # Convert ObjectId to string and ensure id field
+            for concept in concepts:
+                concept["_id"] = str(concept["_id"])
+                if "id" not in concept:
+                    concept["id"] = concept["_id"]
+            
+            return concepts
+            
+        except Exception as e:
+            logger.error(f"Failed to fetch public concepts: {e}")
+            raise HTTPException(status_code=500, detail="Failed to fetch concepts")
+
     @router.get("/config")
     async def get_public_config():
         """Get public configuration (GA, Calendly, etc.)"""
