@@ -70,7 +70,11 @@ const LocomotiveScrollProvider = ({ children }) => {
           locomotiveScrollRef.current = scroll;
 
           // Update scroll on route changes or dynamic content
-          scroll.on('scroll', () => {
+          scroll.on('scroll', (args) => {
+            // Skip locomotive scroll animations during programmatic navigation
+            if (isNavigatingProgrammatically()) {
+              return;
+            }
             // Handle scroll events if needed
           });
 
