@@ -57,7 +57,7 @@ const Hero = () => {
               <br />
               That Speak
               <br />
-              Visual
+              <span className="text-white">Visuals</span>
             </h1>
 
             {/* Tagline - One line, readable */}
