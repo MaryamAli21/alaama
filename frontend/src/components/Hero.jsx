@@ -86,18 +86,7 @@ const Hero = () => {
                 className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 hover:scale-105 text-base whitespace-nowrap"
                 data-scroll
                 data-scroll-speed="0.15"
-                onClick={() => {
-                  const element = document.querySelector('#work');
-                  if (element) {
-                    const headerHeight = 120;
-                    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - headerHeight;
-                    window.scrollTo({
-                      top: offsetPosition,
-                      behavior: 'smooth'
-                    });
-                  }
-                }}
+                onClick={() => scrollToSection('#work')}
               >
                 See Our Work
               </button>
