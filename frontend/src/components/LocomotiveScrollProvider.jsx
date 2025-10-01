@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, createContext, useContext } from 'react';
+import { isNavigatingProgrammatically } from '../utils/navigation';
 
 // Create context for scroll instance
 const ScrollContext = createContext(null);
