@@ -29,12 +29,11 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <button
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('home');
+              onClick={() => {
+                window.location.reload();
               }}
               className="focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-black transition-opacity hover:opacity-80"
-              aria-label="Go to homepage"
+              aria-label="Refresh page and go to homepage"
             >
               <img 
                 src="/images/alaama_logo.png" 
