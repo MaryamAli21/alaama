@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { siteConfig } from '../data/mock';
+import { scrollToSection } from '../utils/navigation';
 
 const Hero = () => {
   return (
