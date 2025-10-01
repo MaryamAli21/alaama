@@ -97,7 +97,16 @@ const Hero = () => {
                 data-scroll
                 data-scroll-speed="0.15"
                 onClick={() => {
-                  document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' });
+                  const element = document.querySelector('#work');
+                  if (element) {
+                    const headerHeight = 120;
+                    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerHeight;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }
                 }}
               >
                 See Our Work
