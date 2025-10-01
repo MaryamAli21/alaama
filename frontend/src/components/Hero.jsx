@@ -89,7 +89,10 @@ const Hero = () => {
                 className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 hover:scale-105 text-base whitespace-nowrap"
                 data-scroll
                 data-scroll-speed="0.15"
-                onClick={() => scrollToSection('#work')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('work');
+                }}
               >
                 See Our Work
               </button>
