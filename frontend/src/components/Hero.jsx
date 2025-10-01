@@ -46,18 +46,18 @@ const Hero = () => {
           <div className="lg:col-span-8">
             {/* Main Headline - 2 words per line */}
             <h1 
-              className="text-6xl md:text-7xl lg:text-8xl font-black leading-none mb-6"
+              className="text-5xl md:text-6xl lg:text-7xl font-black leading-none mb-6"
               style={{ color: '#ff3131' }}
               data-scroll
               data-scroll-speed="0.05"
             >
-              Creative Bold
+              Creative <span className="text-white">&</span>
               <br />
-              Brands That
+              Bold Brands
               <br />
-              <span className="text-white">&</span>
+              That Speak
               <br />
-              Speak Visuals
+              Visual
             </h1>
 
             {/* Tagline - One line, readable */}
