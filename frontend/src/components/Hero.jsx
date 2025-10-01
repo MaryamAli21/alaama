@@ -10,6 +10,12 @@ const Hero = () => {
         className="hero-background hero-parallax" 
         data-scroll 
         data-scroll-speed="0.1"
+        style={{
+          backgroundImage: 'url(/images/hero-background.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
       >
         <div className="hero-overlay"></div>
       </div>
