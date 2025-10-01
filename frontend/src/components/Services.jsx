@@ -8,6 +8,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { apiService } from '../services/api';
+import { scrollToSection } from '../utils/navigation';
 
 const iconComponents = {
   Palette,
