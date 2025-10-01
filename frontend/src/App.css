@@ -121,7 +121,7 @@ body {
   font-weight: 500; 
   font-size: 0.875rem; 
   line-height: 1.4; 
-  color: var(--text-muted); 
+  color: #888680; 
   text-transform: uppercase; 
   letter-spacing: 0.1em; 
 }
