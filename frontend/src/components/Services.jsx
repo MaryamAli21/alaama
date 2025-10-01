@@ -136,7 +136,7 @@ const Services = () => {
                     className="body-small font-medium text-brand-primary hover:text-brand-hover transition-colors flex items-center gap-2 group"
                     onClick={(e) => {
                       e.preventDefault();
-                      scrollToSection('#contact');
+                      scrollToSection('contact');
                     }}
                   >
                     Learn More
