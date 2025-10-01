@@ -107,9 +107,9 @@ const Hero = () => {
           </div>
 
           {/* Right Side - Supporting Content */}
-          <div className="lg:col-span-4 lg:pl-8">
+          <div className="lg:col-span-4 lg:pl-8 lg:pt-4">
             <div 
-              className="space-y-6"
+              className="space-y-6 lg:mt-0 mt-8"
               data-scroll
               data-scroll-direction="horizontal"
               data-scroll-speed="0.06"
