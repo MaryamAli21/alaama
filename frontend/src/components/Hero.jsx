@@ -77,7 +77,16 @@ const Hero = () => {
                 data-scroll
                 data-scroll-speed="0.08"
                 onClick={() => {
-                  document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+                  const element = document.querySelector('#contact');
+                  if (element) {
+                    const headerHeight = 120;
+                    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerHeight;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }
                 }}
               >
                 Book Discovery Call
