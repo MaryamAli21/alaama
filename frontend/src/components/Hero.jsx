@@ -46,7 +46,8 @@ const Hero = () => {
           <div className="lg:col-span-8">
             {/* Main Headline - 2 words per line */}
             <h1 
-              className="text-6xl md:text-7xl lg:text-8xl font-black leading-none mb-6 text-white"
+              className="text-6xl md:text-7xl lg:text-8xl font-black leading-none mb-6"
+              style={{ color: '#ff3131' }}
               data-scroll
               data-scroll-speed="0.05"
             >
@@ -54,7 +55,7 @@ const Hero = () => {
               <br />
               Brands That
               <br />
-              <span className="text-brand-primary">&</span>
+              <span className="text-white">&</span>
               <br />
               Speak Visuals
             </h1>
