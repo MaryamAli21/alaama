@@ -38,7 +38,7 @@ const Header = () => {
               <img 
                 src="/images/alaama_logo.png" 
                 alt="Alaama Creative Studio" 
-                className="h-8 w-auto"
+                className="h-20 w-auto"
               />
             </button>
           </div>
