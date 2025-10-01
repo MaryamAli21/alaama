@@ -49,6 +49,13 @@
   transform: none !important;
 }
 
+/* Immediate visibility for direct navigation */
+.nav-immediate {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
 /* Directional elements - horizontal drift */
 [data-scroll-direction="horizontal"] {
   transform: translateX(8px);
