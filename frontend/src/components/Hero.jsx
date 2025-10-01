@@ -77,18 +77,7 @@ const Hero = () => {
                 className="bg-brand-primary hover:bg-red-600 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 text-base whitespace-nowrap"
                 data-scroll
                 data-scroll-speed="0.08"
-                onClick={() => {
-                  const element = document.querySelector('#contact');
-                  if (element) {
-                    const headerHeight = 120;
-                    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - headerHeight;
-                    window.scrollTo({
-                      top: offsetPosition,
-                      behavior: 'smooth'
-                    });
-                  }
-                }}
+                onClick={() => scrollToSection('#contact')}
               >
                 Book Discovery Call
                 <ArrowRight size={18} />
