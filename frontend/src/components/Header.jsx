@@ -32,11 +32,14 @@ const Header = () => {
           <div className="flex items-center">
             <button
               onClick={() => scrollToSection('#home')}
-              className="text-xl font-bold text-white hover:text-brand-primary transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-black"
+              className="focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-black transition-opacity hover:opacity-80"
               aria-label="Go to homepage"
             >
-              <span className="brand-display text-2xl">ALAAMA</span>
-              <span className="caption ml-2 text-text-secondary">Creative Studio</span>
+              <img 
+                src="/images/alaama_logo.png" 
+                alt="Alaama Creative Studio" 
+                className="h-8 w-auto"
+              />
             </button>
           </div>
 
