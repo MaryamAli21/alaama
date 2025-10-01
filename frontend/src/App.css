@@ -16,10 +16,10 @@
   --border-medium: #3f4816;                 /* Standard olive borders */
   --border-strong: #888680;                 /* Strong gray borders */
   
-  /* MAIN BRAND COLORS - Pixel Pushers Brand Colors Only */
-  --brand-primary: #d9fb06;                 /* Primary lime green */
-  --brand-hover: rgba(217, 251, 6, 0.8);   /* Hover state */
-  --brand-active: rgba(217, 251, 6, 0.6);  /* Active/pressed state */
+  /* MAIN BRAND COLORS - Updated Brand Colors */
+  --brand-primary: #ff3131;                 /* Primary red */
+  --brand-hover: rgba(255, 49, 49, 0.8);   /* Hover state */
+  --brand-active: rgba(255, 49, 49, 0.6);  /* Active/pressed state */
   
   /* Supporting Colors - Use sparingly */
   --secondary-olive: #3f4816;               /* Dark olive green */
