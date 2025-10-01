@@ -34,6 +34,34 @@ class Service(BaseModel):
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
 
+# Concept Models
+class ConceptCreate(BaseModel):
+    title: Optional[str] = Field(None, min_length=1, max_length=200)
+    description: Optional[str] = Field(None, min_length=1, max_length=500)
+    image: str = Field(..., min_length=1, max_length=500)  # Image URL (required)
+    link: Optional[str] = Field(None, max_length=500)  # External link
+    order: int = Field(default=0)
+    active: bool = Field(default=True)
+
+class ConceptUpdate(BaseModel):
+    title: Optional[str] = Field(None, min_length=1, max_length=200)
+    description: Optional[str] = Field(None, min_length=1, max_length=500)
+    image: Optional[str] = Field(None, min_length=1, max_length=500)
+    link: Optional[str] = Field(None, max_length=500)
+    order: Optional[int] = None
+    active: Optional[bool] = None
+
+class Concept(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    title: Optional[str]
+    description: Optional[str]
+    image: str
+    link: Optional[str]
+    order: int
+    active: bool
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+    updated_at: datetime = Field(default_factory=datetime.utcnow)
+
 # Case Study Models
 class CaseStudyCreate(BaseModel):
     title: str = Field(..., min_length=1, max_length=200)
