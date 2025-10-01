@@ -9,9 +9,13 @@ import {
   Edit3, 
   Trash2,
   Eye,
-  EyeOff
+  EyeOff,
+  Image
 } from 'lucide-react';
 import { apiService } from '../../services/api';
+import Modal from './Modal';
+import ConfirmModal from './ConfirmModal';
+import ConceptForm from './ConceptForm';
 
 const AdminDashboard = ({ onLogout }) => {
   const [activeTab, setActiveTab] = useState('services');
