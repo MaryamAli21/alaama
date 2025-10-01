@@ -31,7 +31,7 @@ const Header = () => {
             <button
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection('#home');
+                scrollToSection('home');
               }}
               className="focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-black transition-opacity hover:opacity-80"
               aria-label="Go to homepage"
