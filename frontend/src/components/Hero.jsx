@@ -41,7 +41,7 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[80vh]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start min-h-[80vh]">
           {/* Left Side - Main Content */}
           <div className="lg:col-span-8">
             {/* Main Headline - 2 words per line */}
