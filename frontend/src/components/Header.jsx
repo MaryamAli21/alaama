@@ -102,7 +102,10 @@ const Header = () => {
               ))}
               <div className="pt-4 px-4">
                 <button
-                  onClick={() => scrollToSection('#contact')}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('contact');
+                  }}
                   className="btn-primary w-full focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-black"
                   aria-label="Book a discovery call"
                 >
