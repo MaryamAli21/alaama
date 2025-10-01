@@ -246,4 +246,117 @@ def create_cms_router(db: AsyncIOMotorDatabase) -> APIRouter:
             logger.error(f"Failed to delete case study {case_study_id}: {e}")
             raise HTTPException(status_code=500, detail="Failed to delete case study")
     
+    # Concepts endpoints
+    @router.get("/concepts", response_model=List[Concept])
+    async def get_concepts(active_only: bool = True):
+        """Get all concepts"""
+        try:
+            filter_query = {"active": True} if active_only else {}
+            cursor = db.concepts.find(filter_query).sort("order", 1)
+            concepts = await cursor.to_list(length=None)
+            
+            # Convert ObjectId to string
+            for concept in concepts:
+                concept["_id"] = str(concept["_id"])
+                if "id" not in concept:
+                    concept["id"] = concept["_id"]
+            
+            return concepts
+            
+        except Exception as e:
+            logger.error(f"Failed to fetch concepts: {e}")
+            raise HTTPException(status_code=500, detail="Failed to fetch concepts")
+    
+    @router.get("/concepts/{concept_id}", response_model=Concept)
+    async def get_concept(concept_id: str):
+        """Get single concept by ID"""
+        try:
+            concept = await db.concepts.find_one({"id": concept_id})
+            if not concept:
+                raise HTTPException(status_code=404, detail="Concept not found")
+            
+            concept["_id"] = str(concept["_id"])
+            return concept
+            
+        except HTTPException:
+            raise
+        except Exception as e:
+            logger.error(f"Failed to fetch concept {concept_id}: {e}")
+            raise HTTPException(status_code=500, detail="Failed to fetch concept")
+    
+    @router.post("/concepts", response_model=Concept)
+    async def create_concept(
+        concept_data: ConceptCreate,
+        current_user: dict = Depends(get_current_user)
+    ):
+        """Create new concept (admin only)"""
+        try:
+            concept = Concept(**concept_data.dict())
+            result = await db.concepts.insert_one(concept.dict())
+            
+            concept_dict = concept.dict()
+            concept_dict["_id"] = str(result.inserted_id)
+            
+            logger.info(f"Concept created: {concept.id}")
+            return concept_dict
+            
+        except Exception as e:
+            logger.error(f"Failed to create concept: {e}")
+            raise HTTPException(status_code=500, detail="Failed to create concept")
+    
+    @router.put("/concepts/{concept_id}", response_model=Concept)
+    async def update_concept(
+        concept_id: str,
+        concept_data: ConceptUpdate,
+        current_user: dict = Depends(get_current_user)
+    ):
+        """Update concept (admin only)"""
+        try:
+            # Check if concept exists
+            existing_concept = await db.concepts.find_one({"id": concept_id})
+            if not existing_concept:
+                raise HTTPException(status_code=404, detail="Concept not found")
+            
+            # Update fields
+            update_data = {k: v for k, v in concept_data.dict().items() if v is not None}
+            update_data["updated_at"] = datetime.utcnow()
+            
+            await db.concepts.update_one(
+                {"id": concept_id},
+                {"$set": update_data}
+            )
+            
+            # Fetch updated concept
+            updated_concept = await db.concepts.find_one({"id": concept_id})
+            updated_concept["_id"] = str(updated_concept["_id"])
+            
+            logger.info(f"Concept updated: {concept_id}")
+            return updated_concept
+            
+        except HTTPException:
+            raise
+        except Exception as e:
+            logger.error(f"Failed to update concept {concept_id}: {e}")
+            raise HTTPException(status_code=500, detail="Failed to update concept")
+    
+    @router.delete("/concepts/{concept_id}")
+    async def delete_concept(
+        concept_id: str,
+        current_user: dict = Depends(get_current_user)
+    ):
+        """Delete concept (admin only)"""
+        try:
+            result = await db.concepts.delete_one({"id": concept_id})
+            if result.deleted_count == 0:
+                raise HTTPException(status_code=404, detail="Concept not found")
+            
+            logger.info(f"Concept deleted: {concept_id}")
+            return {"message": "Concept deleted successfully"}
+            
+        except HTTPException:
+            raise
+        except Exception as e:
+            logger.error(f"Failed to delete concept {concept_id}: {e}")
+            raise HTTPException(status_code=500, detail="Failed to delete concept")
+
     return router
