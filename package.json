@@ -1,0 +1,13 @@
+{
+  "name": "alaama-creative-studio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && yarn install && yarn build",
+    "start": "cd frontend && yarn start",
+    "deploy": "vercel --prod"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
