@@ -10,12 +10,20 @@ class GoogleAnalytics {
 
   async initializeGA() {
     try {
-      // Get GA measurement ID from backend config
-      const config = await apiService.getConfig();
-      this.measurementId = config.ga_measurement_id;
+      // Try to get GA measurement ID from environment first, then backend config
+      this.measurementId = process.env.REACT_APP_GA_MEASUREMENT_ID;
+      
+      if (!this.measurementId) {
+        try {
+          const config = await apiService.getConfig();
+          this.measurementId = config.ga_measurement_id;
+        } catch (configError) {
+          console.warn('Could not fetch backend config for GA ID:', configError.message);
+        }
+      }
 
       if (!this.measurementId) {
-        console.warn('Google Analytics Measurement ID not configured');
+        console.warn('Google Analytics Measurement ID not configured in environment or backend');
         return;
       }
 
