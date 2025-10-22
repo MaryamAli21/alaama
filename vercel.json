@@ -5,6 +5,11 @@
   "outputDirectory": "frontend/build",
   "installCommand": "cd frontend && yarn install",
   "framework": "create-react-app",
+  "build": {
+    "env": {
+      "NODE_VERSION": "18.20.5"
+    }
+  },
   "rewrites": [
     {
       "source": "/(.*)",
