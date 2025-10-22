@@ -7,7 +7,7 @@ import requests
 import time
 import json
 
-BASE_URL = "https://alaama-creative.preview.emergentagent.com/api"
+BASE_URL = "https://tweetverse-445.preview.emergentagent.com/api"
 
 def test_rate_limiting_detailed():
     """Test rate limiting with detailed analysis"""
